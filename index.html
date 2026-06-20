@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 Reasons Lotta is the GOAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ── reset & base ── */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --midnight: #080b1c;
+            --deep-blue: #121833;
+            --panel: #161e42;
+            --royal: #2c3a73;
+            --glow-blue: #7d9cff;
+            --moon-lavender: #c6b6ff;
+            --blush: #ffb4c6;
+            --gold: #e8c873;
+            --parchment: #f3efff;
+            --dim: #7e87b3;
+            --font-display: 'Cinzel Decorative', serif;
+            --font-body: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(125, 156, 255, 0.18), transparent 60%),
+                radial-gradient(circle 700px at 85% 15%, rgba(198, 182, 255, 0.10), transparent 65%),
+                radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+                radial-gradient(1px 1px at 80% 10%, #fff, transparent),
+                radial-gradient(1px 1px at 35% 60%, #fff, transparent),
+                radial-gradient(1px 1px at 65% 80%, #fff, transparent),
+                radial-gradient(1px 1px at 92% 55%, #fff, transparent),
+                radial-gradient(1px 1px at 15% 85%, #fff, transparent),
+                linear-gradient(180deg, var(--midnight) 0%, #0c1230 55%, var(--deep-blue) 100%);
+            background-attachment: fixed;
+            color: var(--parchment);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            padding: 48px 18px 100px;
+            overflow-x: hidden;
+        }
+
+        /* ── hero ── */
+        .hero {
+            max-width: 640px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+        .eyebrow {
+            font-size: 13px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--moon-lavender);
+            opacity: 0.8;
+            margin-bottom: 14px;
+        }
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(30px, 6vw, 52px);
+            line-height: 1.15;
+            background: linear-gradient(180deg, #ffffff 10%, var(--glow-blue) 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(125, 156, 255, 0.35);
+        }
+        .subtitle {
+            margin-top: 14px;
+            font-size: 17px;
+            color: var(--dim);
+            font-weight: 500;
+        }
+        .subtitle b {
+            color: var(--blush);
+            font-weight: 700;
+        }
+
+        /* ── mascot ── */
+        .mascot-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 26px 0 4px;
+        }
+        .mascot-wrap svg {
+            filter: drop-shadow(0 0 18px rgba(125, 156, 255, 0.4));
+            animation: bob 4.5s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ── progress ── */
+        .progress-wrap {
+            max-width: 340px;
+            margin: 30px auto 10px;
+            text-align: center;
+        }
+        .progress-label {
+            font-size: 13px;
+            color: var(--dim);
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+        .progress-label span {
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .progress-track {
+            height: 6px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.07);
+            overflow: hidden;
+            border: 1px solid rgba(125, 156, 255, 0.2);
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--glow-blue), var(--gold));
+            transition: width 0.5s ease;
+            box-shadow: 0 0 12px rgba(232, 200, 115, 0.6);
+        }
+
+        /* ── completion message (replaces the modal) ── */
+        .complete-msg {
+            max-width: 340px;
+            margin: 16px auto 0;
+            text-align: center;
+            font-size: 15px;
+            color: var(--gold);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            letter-spacing: 0.04em;
+        }
+        .complete-msg.visible {
+            opacity: 1;
+        }
+        .complete-msg span {
+            color: var(--blush);
+        }
+
+        /* ── surprise btn ── */
+        .surprise-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+        .surprise-btn {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--midnight);
+            background: linear-gradient(135deg, var(--gold), var(--blush));
+            border: none;
+            padding: 11px 24px;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(232, 200, 115, 0.35);
+            transition: transform 0.2s ease;
+        }
+        .surprise-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+        }
+        .surprise-btn:disabled {
+            opacity: 0.5;
+            cursor: default;
+            transform: none;
+        }
+
+        /* ── sections ── */
+        .section {
+            max-width: 520px;
+            margin: 44px auto 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 15px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .section-title.mother {
+            color: var(--gold);
+        }
+        .section-title.friend {
+            color: var(--glow-blue);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 14px;
+        }
+
+        .tile {
+            position: relative;
+            aspect-ratio: 1/1.1;
+            border-radius: 50% 50% 16% 16% / 60% 60% 16% 16%;
+            background: linear-gradient(160deg, var(--panel), var(--deep-blue));
+            border: 1px solid rgba(125, 156, 255, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 19px;
+            color: var(--dim);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            animation: flicker 3.5s ease-in-out infinite;
+        }
+        .tile:nth-child(2n) {
+            animation-delay: 0.7s;
+        }
+        .tile:nth-child(3n) {
+            animation-delay: 1.4s;
+        }
+        @keyframes flicker {
+            0%,
+            100% {
+                box-shadow: 0 0 6px rgba(125, 156, 255, 0.15);
+            }
+            50% {
+                box-shadow: 0 0 14px rgba(125, 156, 255, 0.3);
+            }
+        }
+        .tile:hover {
+            transform: translateY(-3px);
+            border-color: var(--glow-blue);
+        }
+        .tile.cat-friend.revealed {
+            color: var(--midnight);
+            background: linear-gradient(160deg, var(--glow-blue), #4f6bd6);
+            border-color: var(--glow-blue);
+            box-shadow: 0 0 18px rgba(125, 156, 255, 0.6);
+            animation: none;
+        }
+        .tile.cat-mother.revealed {
+            color: var(--midnight);
+            background: linear-gradient(160deg, var(--gold), #c69a3d);
+            border-color: var(--gold);
+            box-shadow: 0 0 18px rgba(232, 200, 115, 0.55);
+            animation: none;
+        }
+        .tile.special {
+            border-color: var(--gold);
+            box-shadow: 0 0 16px rgba(232, 200, 115, 0.4);
+            font-weight: 900;
+        }
+
+        /* ── modal (for individual card reveals) ── */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 6, 18, 0.78);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            padding: 20px;
+        }
+        .overlay.open {
+            display: flex;
+        }
+        .modal {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            background: linear-gradient(170deg, var(--panel), #0d1330);
+            border: 1px solid var(--royal);
+            border-radius: 30px 30px 16px 16px / 60px 60px 16px 16px;
+            padding: 40px 30px 32px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(125, 156, 255, 0.25);
+            animation: modalIn 0.35s ease;
+        }
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--dim);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .modal-close:hover {
+            color: var(--parchment);
+        }
+        .modal-eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .modal-eyebrow.friend {
+            color: var(--glow-blue);
+        }
+        .modal-eyebrow.mother {
+            color: var(--gold);
+        }
+        .modal-num {
+            font-family: var(--font-display);
+            font-size: 38px;
+            color: var(--parchment);
+            margin-bottom: 14px;
+        }
+        .modal-text {
+            font-size: 18px;
+            line-height: 1.55;
+            color: var(--parchment);
+            font-weight: 500;
+            margin-bottom: 26px;
+        }
+        .modal-next {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--midnight);
+            background: linear-gradient(135deg, var(--glow-blue), var(--moon-lavender));
+            border: none;
+            padding: 11px 22px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .modal-next:hover {
+            filter: brightness(1.08);
+        }
+
+        /* ── finale overlay — REMOVED (kept hidden) ── */
+        .finale {
+            display: none !important;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--dim);
+            font-size: 13px;
+        }
+        footer span {
+            color: var(--blush);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="eyebrow">the list is short — sryyyyy</div>
+        <h1>10 Reasons Lotta<br />is the besttttt</h1>
+        <p class="subtitle">mother. friend. certified <b>stinky rat</b>. still the best stinky rat ever</p>
+    </div>
+
+    <div class="mascot-wrap">
+        <svg width="110" height="100" viewBox="0 0 120 110" fill="none">
+            <ellipse cx="60" cy="80" rx="34" ry="24" fill="#2c3a73" />
+            <circle cx="38" cy="40" r="15" fill="#3a4a8c" />
+            <circle cx="82" cy="40" r="15" fill="#3a4a8c" />
+            <circle cx="38" cy="40" r="8" fill="#c6b6ff" />
+            <circle cx="82" cy="40" r="8" fill="#c6b6ff" />
+            <circle cx="60" cy="55" r="28" fill="#4f5fa8" />
+            <circle cx="50" cy="52" r="4" fill="#080b1c" />
+            <circle cx="70" cy="52" r="4" fill="#080b1c" />
+            <circle cx="51" cy="50.5" r="1.3" fill="#fff" />
+            <circle cx="71" cy="50.5" r="1.3" fill="#fff" />
+            <ellipse cx="60" cy="62" rx="5" ry="3.5" fill="#ffb4c6" />
+            <path d="M55 66 Q60 70 65 66" stroke="#080b1c" stroke-width="2" fill="none" stroke-linecap="round" />
+            <line x1="34" y1="58" x2="14" y2="54" stroke="#c6b6ff" stroke-width="1.5" />
+            <line x1="34" y1="63" x2="13" y2="63" stroke="#c6b6ff" stroke-width="1.5" />
+            <line x1="86" y1="58" x2="106" y2="54" stroke="#c6b6ff" stroke-width="1.5" />
+            <line x1="86" y1="63" x2="107" y2="63" stroke="#c6b6ff" stroke-width="1.5" />
+            <path d="M88 88 Q108 92 104 70" stroke="#3a4a8c" stroke-width="4" fill="none" stroke-linecap="round" />
+            <path d="M60 28 L64 18 L68 28 Z" fill="#e8c873" />
+            <circle cx="60" cy="79" r="6" fill="#ffb4c6" />
+            <path d="M60 76 C58 73 53 74 53 78 C53 82 60 86 60 86 C60 86 67 82 67 78 C67 74 62 73 60 76 Z" fill="#ff8fb3" />
+        </svg>
+    </div>
+
+    <div class="progress-wrap">
+        <div class="progress-label">windows lit: <span id="count">0</span> / 10</div>
+        <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    </div>
+
+    <!-- completion message (shows instead of a popup) -->
+    <div class="complete-msg" id="completeMsg">✨ All 10 windows lit — Lotta, you're the realest. <span>🧡</span></div>
+
+    <div class="surprise-wrap">
+        <button class="surprise-btn" id="surprise">🕯️ Light a Random One</button>
+    </div>
+
+    <div class="section">
+        <div class="section-title mother">as a momm</div>
+        <div class="grid" id="gridMother"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title friend">as a friend</div>
+        <div class="grid" id="gridFriend"></div>
+    </div>
+
+    <footer> lOTTAAAAAA lotta lotta 2otta <span>Lotta</span> 🧕🏿 </footer>
+
+    <!-- individual card modal -->
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-eyebrow" id="modalCat">friend</div>
+            <div class="modal-num">#<span id="modalNum">1</span></div>
+            <div class="modal-text" id="modalText">...</div>
+            <button class="modal-next" id="modalNext">Light the next one →</button>
+        </div>
+    </div>
+
+    <!-- finale overlay – removed (hidden permanently) -->
+    <div class="finale" id="finale"></div>
+
+    <script>
+        /* ============================================================
+           CONTENT — edit these to make it personal
+           ============================================================ */
+        const reasons = [
+            { n: 1, cat: 'mother', text: "Takes deep care of her smol baby, always." },
+            { n: 2, cat: 'mother', text: "Does her best for him, every single day, no matter what." },
+            { n: 3, cat: 'mother', text: "Patient with him always, always so loving and takes great care." },
+            { n: 4, cat: 'mother', text: "Protects his peace always, even when she's running on empty energy." },
+            { n: 5, cat: 'mother', text: "making sure hes always happi." },
+            { n: 6, cat: 'friend', text: "sily and cute" },
+            { n: 7, cat: 'friend', text: "sooo smart (not really im lying)" },
+            { n: 8, cat: 'friend', text: "Always considerate and direct" },
+            { n: 9, cat: 'friend', text: "Has a stinky gay ass" },
+            { n: 10, cat: 'friend', special: true, text: "never showers// showering with pee doesnt count" }
+        ];
+
+        const catLabel = { friend: 'as a friend', mother: 'as a mom' };
+        const revealed = new Set();
+        const total = reasons.length;
+
+        const gridMother = document.getElementById('gridMother');
+        const gridFriend = document.getElementById('gridFriend');
+        const overlay = document.getElementById('overlay');
+        const finale = document.getElementById('finale');
+        const countEl = document.getElementById('count');
+        const fillEl = document.getElementById('fill');
+        const surpriseBtn = document.getElementById('surprise');
+        const completeMsg = document.getElementById('completeMsg');
+
+        function renderGrids() {
+            gridMother.innerHTML = '';
+            gridFriend.innerHTML = '';
+            reasons.forEach(r => {
+                const tile = document.createElement('div');
+                tile.className = 'tile cat-' + r.cat + (r.special ? ' special' : '') + (revealed.has(r.n) ? ' revealed' :
+                '');
+                tile.textContent = r.n;
+                tile.addEventListener('click', () => openModal(r.n));
+                (r.cat === 'mother' ? gridMother : gridFriend).appendChild(tile);
+            });
+        }
+
+        function updateProgress() {
+            const count = revealed.size;
+            countEl.textContent = count;
+            fillEl.style.width = (count / total * 100) + '%';
+
+            // show completion message when all 10 are lit — no popup
+            if (count >= total) {
+                completeMsg.classList.add('visible');
+                surpriseBtn.disabled = true;
+                surpriseBtn.textContent = '🕯️ All windows lit';
+            } else {
+                completeMsg.classList.remove('visible');
+                surpriseBtn.disabled = false;
+                surpriseBtn.textContent = '🕯️ Light a Random One';
+            }
+        }
+
+        function openModal(n) {
+            const r = reasons.find(x => x.n === n);
+            if (!r) return;
+            revealed.add(n);
+            document.getElementById('modalCat').textContent = catLabel[r.cat];
+            document.getElementById('modalCat').className = 'modal-eyebrow ' + r.cat;
+            document.getElementById('modalNum').textContent = r.n;
+            document.getElementById('modalText').textContent = r.text;
+            overlay.classList.add('open');
+            renderGrids();
+            updateProgress();
+        }
+
+        // --- modal controls ---
+        document.getElementById('modalClose').addEventListener('click', () => overlay.classList.remove('open'));
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.classList.remove('open');
+        });
+
+        document.getElementById('modalNext').addEventListener('click', () => {
+            const current = parseInt(document.getElementById('modalNum').textContent, 10);
+            const next = current >= total ? 1 : current + 1;
+            openModal(next);
+        });
+
+        // --- surprise button ---
+        surpriseBtn.addEventListener('click', () => {
+            const pool = reasons.filter(r => !revealed.has(r.n)).map(r => r.n);
+            if (pool.length === 0) return;
+            const pick = pool[Math.floor(Math.random() * pool.length)];
+            openModal(pick);
+        });
+
+        // --- init ---
+        renderGrids();
+        updateProgress();
+    </script>
+</body>
+</html>
